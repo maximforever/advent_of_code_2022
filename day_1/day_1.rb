@@ -18,7 +18,17 @@ class CalorieCounter
 
     max
   end
+
+  def get_top_three_group_calories
+    total_calories = []
+
+    @input_array.each do |elf_foods|
+      total_calories << elf_foods.sum
+    end
+
+    total_calories.sort.last(3).sum
+  end
 end
 
 counter = CalorieCounter.new('input.txt')
-counter.get_max_group_calories
+counter.get_top_three_group_calories

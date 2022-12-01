@@ -20,13 +20,13 @@ class CalorieCounter
   end
 
   def get_top_three_group_calories
-    total_calories = []
+    calories_per_elf = []
 
     @input_array.each do |elf_foods|
-      total_calories << elf_foods.sum
+      calories_per_elf << elf_foods.sum
     end
 
-    total_calories.sort.last(3).sum
+    calories_per_elf.sort.last(3).sum
   end
 end
 

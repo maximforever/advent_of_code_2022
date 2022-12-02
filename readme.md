@@ -14,4 +14,16 @@ Straightforward; keeping it simple and not worrying about creating elf objects w
 Terry's `calories_per_elf.sort.last(3).sum` was very elegant.
 
 ### Day 2
+
+**Part 1:**
+Surprisingly hard! ABC/XYZ to rock/paper/scissors was a frustrating conversion.
+I came up with a clever array index trick, but then implemented it wrong like 4-5 times.
+> if `their_moves(our_move_index - 2) == their_move` then we lose
+
+**Part 2:**
+Part two was much more straightforward, but overall, this day was kind of a pain. I'm not happy with my code - the names aren't great, and the logic isn't easy to follow.
+
+Going to try and follow Terry's advice and look at other Ruby solutions.
+
+### Day 3
 [coming soon!]

@@ -26,4 +26,11 @@ Part two was much more straightforward, but overall, this day was kind of a pain
 Going to try and follow Terry's advice and look at other Ruby solutions.
 
 ### Day 3
+I made the connection between part 1 & 2 relatively quickly. Part 1 is splitting the string in 2 and searching for the common element between these two groups, part 2 is searching for the common element between 3 larger groups.
+The story actually confused me more than it helped this time. Authenticity stickers, ha!
+
+I tried to generalize for any group of size `n`, but my ruby knowledge limited me. So I just solved for the two cases we got. Ruby made two things easy: intersection with `a & b` and `a.intersects(b, c, d...)`, as well as getting the character code with `char.ord`
+
+Overall, I felt sloppy on this one.
+### Day 4
 [coming soon!]

@@ -32,5 +32,17 @@ The story actually confused me more than it helped this time. Authenticity stick
 I tried to generalize for any group of size `n`, but my ruby knowledge limited me. So I just solved for the two cases we got. Ruby made two things easy: intersection with `a & b` and `a.intersects(b, c, d...)`, as well as getting the character code with `char.ord`
 
 Overall, I felt sloppy on this one.
+
 ### Day 4
+Apparently Ruby has [array decomposition](https://ruby-doc.org/core-3.0.0/doc/syntax/assignment_rdoc.html#label-Array+Decomposition), which feels a lot like array destructuring in JavaScript.
+
+**Part 1:**
+I felt calmer today. I tackled the problem earlier in the morning, and tried my best to focus on it without interruption. I figured if Part 1 is "note one section containing another", Part 2 will be something like "not any overlap", "count overlapped sections", or "return only sections without overlap". But I decided not to optimize prematurely and went with a straightforward solution of comparing the upper/lower bounds between two sections to register. A friend is working on collision detection for a game right now, and this feels a little like that.
+
+**Part 2:**
+I was right! Part 2 is "any overlap at all". Again, I took a clean, if not the most efficient, approach.
+
+I'm happier with my code today. It's not clever, but it is readible. And it uses a few Rubyish things, like array decomposition, `.map(&:to_i)`
+
+### Day 5
 [coming soon!]

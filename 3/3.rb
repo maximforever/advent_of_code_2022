@@ -32,10 +32,6 @@ class Rucksacker
     total
   end
 
-  def get_common_char(arr1, arr2)
-
-  end
-
   def get_priority(item)
     # lowercase ord is 97-122, uppercase is 65-90, so < 91 is uppercase
     # score needs to be 1-26 for lowercase, 27+ for uppercase, hence adding 26

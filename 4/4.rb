@@ -14,21 +14,36 @@ class SectionCleaner
     end
   end
 
-  def count_overlaps
+  def count_overlaps(partial=false)
     overlaps = 0
     @section_pairs.each do |pair|
-      overlaps += 1 if(numbers_contain_one_another?(pair[0][0], pair[0][1], pair[1][0], pair[1][1]))
+
+      if(partial)
+        overlaps += 1 if(any_overlap?(pair[0][0], pair[0][1], pair[1][0], pair[1][1]))
+      else
+        overlaps += 1 if(total_overlap?(pair[0][0], pair[0][1], pair[1][0], pair[1][1]))
+      end
     end
 
     overlaps
   end
 
-  def numbers_contain_one_another?(n1, n2, n3, n4)
+  def total_overlap?(n1, n2, n3, n4)
     first_pair_contains_second = (n1 <= n3 && n2 >= n4)
     second_pair_contains_first = (n1 >= n3 && n2 <= n4)
     return first_pair_contains_second || second_pair_contains_first
+  end
+
+  def any_overlap?(n1, n2, n3, n4)
+    first_pair_lower_overlap = (n1 >= n3 && n1 <= n4)
+    first_pair_upper_overlap = (n2 >= n3 && n2 <= n4)
+    second_pair_lower_overlap = (n3 >= n1 && n3 <= n2)
+    second_pair_upper_overlap = (n4 >= n1 && n4 <= n2)
+
+    return first_pair_lower_overlap || first_pair_upper_overlap || second_pair_lower_overlap || second_pair_upper_overlap
   end
 end
 
 counter = SectionCleaner.new('input.txt')
 p counter.count_overlaps
+p counter.count_overlaps(true)

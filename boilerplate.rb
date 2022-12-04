@@ -10,5 +10,5 @@ class ClassName
   end
 end
 
-counter = ClassName.new('input.txt')
+counter = ClassName.new('test_input.txt')
 counter.method

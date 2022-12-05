@@ -42,7 +42,17 @@ I felt calmer today. I tackled the problem earlier in the morning, and tried my 
 **Part 2:**
 I was right! Part 2 is "any overlap at all". Again, I took a clean, if not the most efficient, approach.
 
-I'm happier with my code today. It's not clever, but it is readible. And it uses a few Rubyish things, like array decomposition, `.map(&:to_i)`
+I'm happier with my code today. It's not clever, but it is readable. And it uses a few Rubyish things, like array decomposition, `.map(&:to_i)`
 
 ### Day 5
+Well, today I spent like an hour debugging why `Array.new(3, [])` created an array of three elements where each element references the same array. Pushing to the first array... pushed to all of them. This sidelined me for way too long. The correct answer is `Array.new(3) {Array.new}` 😒
+
+In general, I spent a solid hour and a half trying to effectively parse the damn crates.
+
+**Part 1:**
+After parsing the data, actually moving the crates was relatively straightforward - just operating on an array of arrays. I think parsing the data helped me develop a strong intuition for 
+
+**Part 2:**
+
+### Day 6
 [coming soon!]

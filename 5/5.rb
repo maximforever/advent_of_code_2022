@@ -40,15 +40,27 @@ class StackMover
   def create_instructions_from_text(text)
     text.split("\n").map do |line|
       _, count, from, to = line.split(/[a-z]+\s/).map(&:to_i)
-      [count.to_i, from.to_i, to.to_i]
+      # stacks are numbered from 1, while we use zero indexing
+      [count.to_i, from.to_i - 1, to.to_i - 1]
     end
   end
 
-  def method
-    binding.pry
-    total_score = 0
+  def complete_instructions
+    @instructions.each do |instruction|
+      complete_one_instruction(instruction)
+    end
+
+    top_row = @crates.map { |crate| crate.last}.join()
+  end
+
+  def complete_one_instruction(instruction)
+    count, from, to = instruction
+
+    count.times do
+      @crates[to] << @crates[from].pop
+    end
   end
 end
 
-counter = StackMover.new('test_input.txt')
-counter.method
+counter = StackMover.new('input.txt')
+p counter.complete_instructions

@@ -8,7 +8,11 @@ require 'pry'
 
 class StackMover
   def initialize(file_name)
-    crate_lines, instruction_lines = File.read(file_name).split("\n\n")
+    @file_name = file_name
+  end
+
+  def reset_crates
+    crate_lines, instruction_lines = File.read(@file_name).split("\n\n")
     @crates = create_crates_from_text(crate_lines)
     @instructions = create_instructions_from_text(instruction_lines)
   end
@@ -45,22 +49,34 @@ class StackMover
     end
   end
 
-  def complete_instructions
+  def complete_instructions(new_model = false)
+    reset_crates
+
     @instructions.each do |instruction|
-      complete_one_instruction(instruction)
+      new_model ? complete_one_instruction_on_new_model(instruction) : complete_one_instruction(instruction)
     end
 
     top_row = @crates.map { |crate| crate.last}.join()
   end
 
   def complete_one_instruction(instruction)
+    # old model moves crates one at a time
     count, from, to = instruction
 
     count.times do
       @crates[to] << @crates[from].pop
     end
   end
+
+  def complete_one_instruction_on_new_model(instruction)
+    # new model moves crates all at the same time
+    count, from, to = instruction
+
+    @crates[to] << @crates[from].pop(count)
+    @crates[to] = @crates[to].flatten
+  end
 end
 
 counter = StackMover.new('input.txt')
-p counter.complete_instructions
+p counter.complete_instructions(false)
+p counter.complete_instructions(true)

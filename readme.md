@@ -47,12 +47,13 @@ I'm happier with my code today. It's not clever, but it is readable. And it uses
 ### Day 5
 Well, today I spent like an hour debugging why `Array.new(3, [])` created an array of three elements where each element references the same array. Pushing to the first array... pushed to all of them. This sidelined me for way too long. The correct answer is `Array.new(3) {Array.new}` 😒
 
-In general, I spent a solid hour and a half trying to effectively parse the damn crates.
+In general, I spent a solid hour and a half trying to effectively parse the damn crates. Then I spent a much more reasonable 15-20 minutes implementing the solution. Parsing was by far the hard part.
 
 **Part 1:**
-After parsing the data, actually moving the crates was relatively straightforward - just operating on an array of arrays. I think parsing the data helped me develop a strong intuition for 
+After parsing the data, actually moving the crates was relatively straightforward - just operating on an array of arrays. I think parsing the data helped me develop a strong intuition for the problem.
 
 **Part 2:**
+Not much to say here; `Array.pop(n)` is nice.
 
 ### Day 6
 [coming soon!]

@@ -56,4 +56,13 @@ After parsing the data, actually moving the crates was relatively straightforwar
 Not much to say here; `Array.pop(n)` is nice.
 
 ### Day 6
+Today was straightforward!
+
+**Part 1:**
+I brute-forced Part 1 by manually comparing characters.
+
+**Part 2:**
+I decided to rewrite part 1 to accept any arbitrary length. I used Ruby's `.uniq` to compare a substring to its unique version to see if every character is unique. That felt a little like cheating, but is definitely taking advantage of Ruby.
+
+### Day 7
 [coming soon!]
